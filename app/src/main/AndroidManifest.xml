@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Personajes.ListaPersonajes"></activity>
+        <activity android:name=".Personajes.Perfil"></activity>
     </application>
 
 </manifest>

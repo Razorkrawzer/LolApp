@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_default"
     tools:context="com.example.george.lolapp.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center">
+
+        <ImageView
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:src="@drawable/lol_logo"
+            />
 
         <TextView
             android:padding="25dp"
@@ -19,6 +27,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nombre del invocador"
+            android:textSize="20sp"
+            android:fontFamily="@font/timeless"
+            android:textColor="@color/texto"
             />
 
         <EditText
@@ -26,15 +37,21 @@
             android:padding="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/texto"
+            android:textColorHint="@color/texto"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="Name" />
+            android:hint="Invocador"
+            android:fontFamily="@font/timeless"/>
 
         <Button
             android:id="@+id/btn_acceder"
-            android:padding="25dp"
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/timeless"
+            android:textColor="@color/texto"
+            android:background="@drawable/btn"
             android:text="Buscar"/>
 
 
@@ -42,4 +59,4 @@
 
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

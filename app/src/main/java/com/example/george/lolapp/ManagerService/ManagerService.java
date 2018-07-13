@@ -12,6 +12,8 @@ import retrofit2.http.Path;
 
 public interface ManagerService {
 
-    @GET("summoner/v3/summoners/by-name/{usuario}?api_key=RGAPI-32900a06-ee60-4018-b54b-512ca20ed2d8")
+    @GET("summoner/v3/summoners/by-name/{usuario}?api_key=RGAPI-d789e52b-5783-4c78-8ac6-c0ef0e0130d0")
     Call<Profile> getProfile(@Path("usuario") String usuario);
+
+
 }

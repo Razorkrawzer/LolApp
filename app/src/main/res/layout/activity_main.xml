@@ -21,37 +21,60 @@
             />
 
         <TextView
-            android:padding="25dp"
             android:id="@+id/texto1"
             android:gravity="center"
+            android:layout_marginTop="55dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nombre del invocador"
+            android:text="@string/Bienvenido"
             android:textSize="20sp"
-            android:fontFamily="@font/timeless"
+            android:fontFamily="@font/beaufort_regular"
             android:textColor="@color/texto"
             />
 
-        <EditText
-            android:id="@+id/nombreInvocador"
-            android:padding="25dp"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/texto"
-            android:textColorHint="@color/texto"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Invocador"
-            android:fontFamily="@font/timeless"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/usuario"
+                android:baselineAlignBottom="true"/>
+
+            <EditText
+                android:id="@+id/nombreInvocador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/edittextbackground"
+                android:textColor="@color/texto"
+                android:textColorHint="@color/texto"
+                android:maxLength="30"
+                android:ems="12"
+                android:inputType="textPersonName"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:hint=" Invocador"
+                android:fontFamily="@font/beaufort_regular"/>
+
+
+        </LinearLayout>
+
+
 
         <Button
             android:id="@+id/btn_acceder"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/timeless"
-            android:textColor="@color/texto"
-            android:background="@drawable/btn"
+            android:fontFamily="@font/beaufort_bold"
+            android:textColor="@color/text_button"
+            android:background="@drawable/button_enable_disable"
             android:text="Buscar"/>
 
 

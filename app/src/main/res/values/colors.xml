@@ -6,4 +6,11 @@
 
     <color name="texto">#dedede</color>
     <color name="titulo">#c9aa71</color>
+    <color name="editText_background">#24292c</color>
+    <color name="editText_border">#785a28</color>
+    <color name="button_background">#1e2328</color>
+    <color name="button_border">#0596aa</color>
+    <color name="button_disabled">#3c3e3f</color>
+    <color name="text_disabled">#35393a</color>
+    <color name="text_button">#cdfafa</color>
 </resources>

@@ -3,7 +3,6 @@ package com.example.george.lolapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -19,13 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.george.lolapp.ManagerService.ManagerService;
-import com.example.george.lolapp.Modelo.IconosPerfil.Iconos;
-import com.example.george.lolapp.Modelo.IconosPerfil.IconosPersonajes;
+import com.example.george.lolapp.Modelo.Campeones.Campeones;
+import com.example.george.lolapp.Modelo.Campeones.ListaCampeones;
 import com.example.george.lolapp.Modelo.Profile;
-import com.example.george.lolapp.Personajes.Perfil;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -150,6 +147,8 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("OnFailure", t.toString());
                     }
                 });
+
+
 
 
 

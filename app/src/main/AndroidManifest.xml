@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Personajes.Perfil"></activity>
+        <activity android:name=".Perfil" />
+        <activity android:name=".Champs"></activity>
     </application>
 
 </manifest>

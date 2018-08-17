@@ -16,7 +16,7 @@ import retrofit2.http.Path;
 
 public interface ManagerService {
 
-    @GET("summoner/v3/summoners/by-name/{usuario}?api_key=RGAPI-4a3880eb-a99d-46b1-93b9-bfea9bdffc31")
+    @GET("summoner/v3/summoners/by-name/{usuario}?api_key=RGAPI-007f30fd-c429-465c-9544-3a29a72452ab")
     Call<Profile> getProfile(@Path("usuario") String usuario);
 
     @GET("champion.json")

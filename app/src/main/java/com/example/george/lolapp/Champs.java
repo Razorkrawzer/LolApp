@@ -13,6 +13,7 @@ import com.example.george.lolapp.Modelo.Campeones.ListaCampeones;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,12 +56,18 @@ public class Champs extends AppCompatActivity {
             public void onResponse(Call<ListaCampeones> call, Response<ListaCampeones> response) {
 
                 if (response.isSuccessful()){
-                    ListaCampeones campeones = response.body();
-                    for (int i = 0; i < campeones.getData().size(); i++){
-                        Log.d("listado", "champs :" + campeones.getData().get(i));
+
+                    Map<String, Object> data = response.body().getData();
+                    for (int i = 0; i < data.size(); i++){
+                        Log.e("TAG","campeones => " + data.size());
                     }
-                    Log.d("data", "campeones => " + campeones.getData().get("Aatrox"));
-                    Log.d("version", "version => " +campeones.getVersion());
+
+//                    ListaCampeones campeones = response.body();
+//                    for (int i = 0; i < campeones.getData().size(); i++){
+//                        Log.d("listado", "champs :" + campeones.getData().get(i));
+//                    }
+//                    Log.d("data", "campeones => " + campeones.getData().get("Aatrox"));
+//                    Log.d("version", "version => " +campeones.getVersion());
                 }
 
              /*   try {

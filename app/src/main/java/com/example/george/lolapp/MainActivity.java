@@ -18,11 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.george.lolapp.ManagerService.ManagerService;
-import com.example.george.lolapp.Modelo.Campeones.Campeones;
-import com.example.george.lolapp.Modelo.Campeones.ListaCampeones;
 import com.example.george.lolapp.Modelo.Profile;
-
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;

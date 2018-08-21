@@ -7,21 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.george.lolapp.Modelo.Campeones.Campeones;
-import com.example.george.lolapp.Modelo.Campeones.ListaCampeones;
+import com.example.george.lolapp.Modelo.Campeon.Descripcion;
 import com.example.george.lolapp.R;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
-    private Map<String, Object> champs;
+    private ArrayList<Descripcion> lista;
 
-    public DataAdapter(Map<String, Object> champs){
-        this.champs = champs;
+    public DataAdapter(ArrayList<Descripcion> lista) {
+        this.lista = lista;
     }
-
-
 
     @NonNull
     @Override
@@ -35,13 +31,13 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
 //        viewHolder.titulo.setText(champs.get(i).getTitle());
 //        viewHolder.identificador.setText(champs.get(i).getId());
-        viewHolder.nombre.setText(champs.get(i).toString());
+        viewHolder.nombre.setText(lista.get(i).getName());
 
     }
 
     @Override
     public int getItemCount() {
-        return champs.size();
+        return lista.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

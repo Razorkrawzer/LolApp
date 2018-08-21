@@ -8,11 +8,10 @@ import android.util.Log;
 
 import com.example.george.lolapp.Adapter.DataAdapter;
 import com.example.george.lolapp.ManagerService.ManagerService;
-import com.example.george.lolapp.Modelo.Campeones.Campeones;
-import com.example.george.lolapp.Modelo.Campeones.ListaCampeones;
+import com.example.george.lolapp.Modelo.Campeon.Descripcion;
+import com.example.george.lolapp.Modelo.Campeon.ListaCampeones;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -24,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Champs extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<Campeones> data;
+    ArrayList<Descripcion> data;
     DataAdapter adapter;
 
     @Override
@@ -37,9 +36,11 @@ public class Champs extends AppCompatActivity {
 
     private void initViews(){
         recyclerView = (RecyclerView)findViewById(R.id.recycler);
+//        adapter = new DataAdapter();
         recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
         loadJSON();
     }
 
@@ -57,21 +58,40 @@ public class Champs extends AppCompatActivity {
 
                 if (response.isSuccessful()){
 
-                    Map<String, Object> data = response.body().getData();
-                    for (int i = 0; i < data.size(); i++){
-                        Log.e("TAG","campeones => " + data.size());
+
+
+                    Map<String, Descripcion> data = response.body().getData();
+
+                    Log.e("TAG","campeones => " + data.size());
+
+                    for (Map.Entry<String, Descripcion> entry : data.entrySet()){
+//                        Log.d("TAG", "campeon => " + entry.getKey() + " / " + entry.getValue());
+
+                       Log.e("TAG", entry.getValue().getInfo().getAttack() );
+                       Log.e("TAG", entry.getValue().getName());
+                       Log.e("TAG", entry.getValue().getTitle());
+                        Log.e("TAG", entry.getValue().getBlurb());
+                        Log.e("TAG", entry.getValue().getId());
+
+                       //codo = data.get(nombreCampeon);
+
+
+
+
                     }
+
+
 
 //                    ListaCampeones campeones = response.body();
 //                    for (int i = 0; i < campeones.getData().size(); i++){
 //                        Log.d("listado", "champs :" + campeones.getData().get(i));
 //                    }
-//                    Log.d("data", "campeones => " + campeones.getData().get("Aatrox"));
+//                    Log.d("data", "campeones => " + data.get("Aatrox"));
 //                    Log.d("version", "version => " +campeones.getVersion());
                 }
 
              /*   try {
-                    ArrayList<Campeones> camps = response.body().getData();
+                    ArrayList<Descripcion> camps = response.body().getData();
                     for (int i = 0; i < camps.size(); i++){
                         Log.d("TAG", "hola" + camps.get(i).getName());
                     }

@@ -7,6 +7,7 @@ public class Descripcion {
     private String title;
     private String blurb;
     private InfoChamp info;
+    private ImagenChamp image;
 
     public InfoChamp getInfo() {
         return info;

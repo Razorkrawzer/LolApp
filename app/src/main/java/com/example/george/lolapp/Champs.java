@@ -1,18 +1,22 @@
 package com.example.george.lolapp;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.ArrayMap;
 import android.util.Log;
 
 import com.example.george.lolapp.Adapter.DataAdapter;
 import com.example.george.lolapp.ManagerService.ManagerService;
 import com.example.george.lolapp.Modelo.Campeon.Descripcion;
-import com.example.george.lolapp.Modelo.Campeon.ListaCampeones;
+import com.example.george.lolapp.Modelo.Campeon.JsonDataChamps;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,27 +26,27 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Champs extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    ArrayList<Descripcion> data;
-    DataAdapter adapter;
+    RecyclerView mRecyclerView;
+    DataAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_champs);
         initViews();
-        loadJSON();
+
+
     }
 
-    private void initViews(){
-        recyclerView = (RecyclerView)findViewById(R.id.recycler);
-//        adapter = new DataAdapter();
-        recyclerView.setHasFixedSize(true);
+    private void initViews() {
+        mRecyclerView = findViewById(R.id.recycler);
+        mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
+        mRecyclerView.setLayoutManager(layoutManager);
         loadJSON();
+
     }
+
 
     private void loadJSON(){
         Retrofit retrofit = new Retrofit.Builder()
@@ -51,10 +55,10 @@ public class Champs extends AppCompatActivity {
                 .build();
 
         ManagerService service = retrofit.create(ManagerService.class);
-        Call<ListaCampeones> campeones = service.getCampeones();
-        campeones.enqueue(new Callback<ListaCampeones>() {
+        Call<JsonDataChamps> campeones = service.getCampeones();
+        campeones.enqueue(new Callback<JsonDataChamps>() {
             @Override
-            public void onResponse(Call<ListaCampeones> call, Response<ListaCampeones> response) {
+            public void onResponse(Call<JsonDataChamps> call, Response<JsonDataChamps> response) {
 
                 if (response.isSuccessful()){
 
@@ -64,14 +68,20 @@ public class Champs extends AppCompatActivity {
 
                     Log.e("TAG","campeones => " + data.size());
 
-                    for (Map.Entry<String, Descripcion> entry : data.entrySet()){
+                    mAdapter = new DataAdapter(data);
+                    mRecyclerView.setAdapter(mAdapter);
+                    mAdapter.notifyDataSetChanged();
+                    for (Map.Entry<String, Descripcion> campeon : data.entrySet()){
 //                        Log.d("TAG", "campeon => " + entry.getKey() + " / " + entry.getValue());
+//                        Log.e("TAG", campeon.getValue());
+//                       Log.e("TAG", campeon.getValue().getInfo().getAttack());
+//                       Log.e("TAG", campeon.getValue().getName());
+//                       Log.e("TAG", campeon.getValue().getTitle());
+//                       Log.e("TAG", campeon.getValue().getBlurb());
+//                       Log.e("TAG", campeon.getValue().getId());
 
-                       Log.e("TAG", entry.getValue().getInfo().getAttack() );
-                       Log.e("TAG", entry.getValue().getName());
-                       Log.e("TAG", entry.getValue().getTitle());
-                        Log.e("TAG", entry.getValue().getBlurb());
-                        Log.e("TAG", entry.getValue().getId());
+
+
 
                        //codo = data.get(nombreCampeon);
 
@@ -82,7 +92,7 @@ public class Champs extends AppCompatActivity {
 
 
 
-//                    ListaCampeones campeones = response.body();
+//                    JsonDataChamps campeones = response.body();
 //                    for (int i = 0; i < campeones.getData().size(); i++){
 //                        Log.d("listado", "champs :" + campeones.getData().get(i));
 //                    }
@@ -105,9 +115,10 @@ public class Champs extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ListaCampeones> call, Throwable t) {
+            public void onFailure(Call<JsonDataChamps> call, Throwable t) {
                 Log.d("Error", t.getMessage());
             }
         });
     }
+
 }

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;
 
-public class ListaCampeones {
+public class JsonDataChamps {
 
     private String version;
     @SerializedName("data")

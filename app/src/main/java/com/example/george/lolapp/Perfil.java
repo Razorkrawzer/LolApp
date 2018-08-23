@@ -27,6 +27,7 @@ public class Perfil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.perfil);
+        getSupportActionBar().hide();
 
 
         prefs = this.getSharedPreferences("Preferences", Context.MODE_PRIVATE);

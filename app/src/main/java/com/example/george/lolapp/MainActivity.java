@@ -1,5 +1,6 @@
 package com.example.george.lolapp;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnBuscar;
     EditText invocador;
     SharedPreferences prefs;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,13 +96,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 final String nombreInvocador = invocador.getText().toString();
+                final String key = getToken();
+                Log.e("TOK", getToken());
+                progressDialog = ProgressDialog.show(MainActivity.this, "Cargando", "");
+                progressDialog.show();
 
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl("https://la1.api.riotgames.com/lol/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
                 ManagerService service = retrofit.create(ManagerService.class);
-                Call<Profile> perfil = service.getProfile(nombreInvocador);
+                Call<Profile> perfil = service.getProfile(nombreInvocador, key);
                 perfil.enqueue(new Callback<Profile>() {
                     @Override
                     public void onResponse(Call<Profile> call, Response<Profile> response) {
@@ -114,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                                 Log.d("nivel", String.valueOf(response.body().getSummonerLevel()));
 //                            nivelText.setText(String.valueOf(Invocador.getSummonerLevel()));
                                 Log.d("icono", String.valueOf(Invocador.getProfileIconId()));
-
+                                progressDialog.dismiss();
                                 startActivity(new Intent(MainActivity.this, Perfil.class));
 
                                 saveNombre(String.valueOf(Invocador.getName()));
@@ -187,8 +193,8 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    private String getIcono(){
-        return prefs.getString("icono", "");
+    private String getToken(){
+        return prefs.getString("token", "");
     }
 
 

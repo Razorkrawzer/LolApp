@@ -34,6 +34,7 @@ public class Champs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_champs);
         initViews();
+        getSupportActionBar().hide();
 
 
     }

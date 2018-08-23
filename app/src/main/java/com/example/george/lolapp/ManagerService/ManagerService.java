@@ -1,6 +1,7 @@
 package com.example.george.lolapp.ManagerService;
 
 import com.example.george.lolapp.Modelo.Campeon.JsonDataChamps;
+import com.example.george.lolapp.Modelo.Codigo;
 import com.example.george.lolapp.Modelo.Profile;
 
 import retrofit2.Call;
@@ -13,11 +14,15 @@ import retrofit2.http.Path;
 
 public interface ManagerService {
 
-    @GET("summoner/v3/summoners/by-name/{usuario}?api_key=RGAPI-632f616c-102e-45bf-8e2c-9f6274b8e801")
+
+    @GET("summoner/v3/summoners/by-name/{usuario}?api_key=RGAPI-3492ad49-b1ee-4588-a257-4c589b060a98")
     Call<Profile> getProfile(@Path("usuario") String usuario);
 
     @GET("champion.json")
     Call<JsonDataChamps> getCampeones();
+
+
+
 
 
 

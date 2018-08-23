@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_default"
+    tools:context=".CodigoAccess">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/texto"
+            android:fontFamily="@font/beaufort_regular"
+            android:textSize="20sp"
+            android:text="Por favor ingresa el código"/>
+
+        <EditText
+            android:id="@+id/inputCodigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/edittextbackground"
+            android:padding="10dp"
+            android:ems="12"
+            android:hint="Codigo"
+            android:textColorHint="@color/texto"
+            android:fontFamily="@font/beaufort_regular"
+            android:inputType="textPersonName"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textColor="@color/texto"/>
+
+        <Button
+            android:id="@+id/btn_codigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Acceder"
+            android:textColor="@color/text_button"
+            android:background="@drawable/button_enable_disable"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

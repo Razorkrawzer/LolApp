@@ -82,7 +82,6 @@ public class Champs extends AppCompatActivity {
 
 
 
-
                        //codo = data.get(nombreCampeon);
 
 

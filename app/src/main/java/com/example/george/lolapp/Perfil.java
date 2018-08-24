@@ -1,5 +1,6 @@
 package com.example.george.lolapp;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,6 +24,7 @@ public class Perfil extends AppCompatActivity {
     TextView nivelText;
     SharedPreferences prefs;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,14 +45,18 @@ public class Perfil extends AppCompatActivity {
         Button btn_campeones = findViewById(R.id.btn_campeones);
 
 
-        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/8.14.1/img/profileicon/"+iconoPerfil+".png").into(iconoInvocador);
+
+
+        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/8.16.1/img/profileicon/"+iconoPerfil+".png").into(iconoInvocador);
         nombreInvocador.setText(nombrePerfil);
         nivelInvocador.setText(nivelPerfil);
 
         btn_campeones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(Perfil.this, Champs.class));
+
 
 
             }

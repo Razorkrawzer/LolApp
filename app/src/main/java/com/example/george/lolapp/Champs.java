@@ -51,7 +51,7 @@ public class Champs extends AppCompatActivity {
 
     private void loadJSON(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://ddragon.leagueoflegends.com/cdn/8.15.1/data/es_MX/")
+                .baseUrl("http://ddragon.leagueoflegends.com/cdn/8.16.1/data/es_MX/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -80,7 +80,7 @@ public class Champs extends AppCompatActivity {
 //                       Log.e("TAG", campeon.getValue().getTitle());
 //                       Log.e("TAG", campeon.getValue().getBlurb());
 //                       Log.e("TAG", campeon.getValue().getId());
-
+//                        Log.e("TAG", campeon.getValue().getImage().getFull());
 
 
                        //codo = data.get(nombreCampeon);

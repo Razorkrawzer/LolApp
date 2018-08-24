@@ -30,7 +30,7 @@
             android:background="@drawable/edittextbackground"
             android:padding="10dp"
             android:ems="12"
-            android:hint="Codigo"
+            android:hint="Código"
             android:textColorHint="@color/texto"
             android:fontFamily="@font/beaufort_regular"
             android:inputType="textPersonName"

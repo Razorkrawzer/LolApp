@@ -9,6 +9,14 @@ public class Descripcion {
     private InfoChamp info;
     private ImagenChamp image;
 
+    public ImagenChamp getImage() {
+        return image;
+    }
+
+    public void setImage(ImagenChamp image) {
+        this.image = image;
+    }
+
     public InfoChamp getInfo() {
         return info;
     }

@@ -129,15 +129,18 @@ public class MainActivity extends AppCompatActivity {
 
 
                             } else if (invocador.length() <= 0 ){
+                                progressDialog.dismiss();
                                 Toast.makeText(getApplicationContext(), "Ingresa con tu usuario", Toast.LENGTH_LONG).show();
 
                             } else{
-                                Toast.makeText(getApplicationContext(), "Invocador inválido, Verifica tu usuario", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                                Toast.makeText(getApplicationContext(), "Hubo un error, Verifica tu usuario", Toast.LENGTH_SHORT).show();
                             }
 
 
                         }catch (Exception e){
                             e.printStackTrace();
+                            progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Invocador inválido", Toast.LENGTH_LONG).show();
                         }
 
